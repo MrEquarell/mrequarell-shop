@@ -1,0 +1,6 @@
+development:
+  password:
+  theme_id: "79624896608"
+  store: mrequarellshop.myshopify.com
+  ignore_files:
+    - config/settings_data.json
