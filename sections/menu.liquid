@@ -1,21 +1,19 @@
-{% for link in linklists[section.settings.menu].links %}
-    <li>
-        <a href="{{ link.url }}">{{ link.title }}</a>
-    </li>
-{% endfor %}
-
 <div class="image-content__image-container">
-    <div class="image-content__image-wrapper" style="padding-top:{{ 1 | divided_by: block.settings.image.aspect_ratio | times: 100}}%;">
-        {% assign img_url = block.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' %}
-        <img class="image-content__image lazyload"
-        src="{{ block.settings.image | img_url: '300x300' }}"
-        data-src="{{ img_url }}"
-        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 1944, 2048]"
-        data-aspectratio="{{ block.settings.image.aspect_ratio }}"
-        data-sizes="auto"
-        alt="{{ block.settings.image.alt | escape }}">
+    <div class="image-content__image-wrapper">
+        {% assign img_url = section.settings.image | img_url: 'large' %}
+        <img style="width: 50%;" class="image-content__image lazyload"
+        src="{{ section.settings.image | img_url: '300x300' }}">
     </div>
 </div>
+
+{% for link in linklists[section.settings.menu].links %}
+<ul style="list-style: none; padding: 0; margin: 0; overflow: hidden;">
+    <li style="display: block; font-size: 1em; margin: 5px;">
+        <a style="display: block; text-decoration: none; text-align: center; color: #000;"
+        href="{{ link.url }}">{{ link.title }}</a>
+    </li>
+</ul>
+{% endfor %}
 
 {% schema %}
 {
