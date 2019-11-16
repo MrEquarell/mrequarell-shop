@@ -1,19 +1,15 @@
-<div class="image-content__image-container">
-    <div class="image-content__image-wrapper">
-        {% assign img_url = section.settings.image | img_url: 'large' %}
-        <img style="width: 50%;" class="image-content__image lazyload"
-        src="{{ section.settings.image | img_url: '300x300' }}">
-    </div>
+<div id="section-cta">
+  <div class="grid text-center">
+    <img src="{{ section.settings.image | img_url: '1000x'}}">
+    <ul style="display: flex; justify-content: space-evenly;">
+      {% for link in linklists[section.settings.menu].links %}
+          <li style="display: block; font-size: 1em; margin: 5px;">
+              <a style="color: #000;" href="{{ link.url }}">{{ link.title }}</a>
+          </li>
+      {% endfor %}
+    </ul>
+  </div>
 </div>
-
-{% for link in linklists[section.settings.menu].links %}
-<ul style="list-style: none; padding: 0; margin: 0; overflow: hidden;">
-    <li style="display: block; font-size: 1em; margin: 5px;">
-        <a style="display: block; text-decoration: none; text-align: center; color: #000;"
-        href="{{ link.url }}">{{ link.title }}</a>
-    </li>
-</ul>
-{% endfor %}
 
 {% schema %}
 {
