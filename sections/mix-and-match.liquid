@@ -1,0 +1,34 @@
+<div class="flexslider">
+  <ul class="slides">
+    	{% for image in product.images %}
+	   <li>
+	        {{ image | product_img_url: 'original' | img_tag }}
+	   </li>
+	{% endfor %}
+  </ul>
+</div>
+
+{% schema %}
+{
+  "name": {
+    "en": "Mix and Match",
+    "fr": "Mix and Match"
+  },
+  "settings": [
+    {
+      "type": "product",
+      "id": "product_img_url",
+      "label": {
+      "en": "Product Image",
+      "fr": "Image Produit"
+      }
+    }
+  ],
+  "presets": [
+    {
+      "name": "Mix and Match",
+      "category": "Cours IIM"
+    }
+  ]
+}
+{% endschema %}
